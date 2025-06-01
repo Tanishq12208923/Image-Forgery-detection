@@ -1,0 +1,369 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body, html {
+  background: linear-gradient(to right, #000000, #6033ca) ,url('freepik__adjust__50595.png');
+  background-blend-mode:multiply;
+  background-repeat: repeat-y;
+}
+
+/* 1e0065 */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  color: white;
+  width: 100%;
+}
+.logo h1 {
+  font-size: 40px;
+  font-family: 'Courier New', Courier, monospace;
+}
+.logo p {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 25px;
+}
+.about-container {
+  position: relative;
+  display: inline-block;
+}
+
+.about-box {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 280px;
+  background-color: rgba(0, 0, 0, 0.8); /* Transparent black */
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid white;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.about-btn {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  padding: 8px 15px;
+  background-color: white;
+  font-weight: 550;
+  border: 2px groove black;
+  border-radius: 30px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.about-btn:hover {
+  background-color: black;
+  border: 2px groove white;
+  color: white;
+}
+
+Show the hover box when hovering over the About button
+.about-container:hover .about-box {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+.menu-icon span {
+  display: block;
+  width: 25px;
+  height: 4px;
+  background-color: white;
+}
+
+
+#container-text {
+  padding: 20px;
+  width: 80%;
+  height: 500px;
+  color: white;
+  margin: 25px auto;
+  border-radius: 20px;
+  border: 2px solid white;
+  font-size: 24px;
+  font-family: 'Times New Roman', Times, serif;
+  overflow: hidden;
+  position: relative;
+  line-height: 1.2;
+}
+#container-text::after {
+  content: "|";
+  display: inline-block;
+  animation: blink 0.8s infinite;
+  color: white;
+  margin-left: 5px;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+
+#slider {
+  display: flex;
+  flex-direction: column; /* Stack arrows vertically */
+  align-items: center; /* Center them horizontally */
+  margin: 10px auto 0; /* Ensure it appears below container-text */
+  color: white;
+}
+#slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px auto 0;
+  margin-bottom: 60px;
+  color: white;
+}
+#slider i {
+  cursor: pointer;
+  transition: 0.3s;
+}
+#slider i:nth-child(1) {
+  font-size: 40px;
+  margin-bottom: -30px; /* Equal spacing */
+}
+#slider i:nth-child(2) {
+  font-size: 50px;
+  margin-bottom: -35px;
+}
+#slider i:nth-child(3) {
+  font-size: 60px;
+}
+#slider i:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* Main Container */
+#main-ele {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.373);
+  border-radius: 30px;
+  margin: 25px auto;
+  border: 2px dashed white;
+  position: relative;
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* Upload Box */
+.upload-box {
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.upload-box i.ri-upload-cloud-line {
+  font-size: 50px;
+  margin-bottom: 15px;
+  display: block;
+}
+.file-label {
+  display: inline-block;
+  background: white;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.drop-text {
+  margin-top: 10px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+
+/* Image Preview */
+#image-preview {
+  max-width: 100%; 
+  max-height: 400px; /* Adjust this based on UI */
+  object-fit: contain;
+  border: 2px dashed #ccc;
+  display: none;
+  margin: 15px auto;
+  border-radius: 10px;
+}
+/* Scan Button */
+.scan-button-container {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#scan-button {
+  padding: 15px 30px;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  border: 2px solid black;
+  border-radius: 30px;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.3s;
+  display: none;
+}
+#scan-button:hover {
+  background-color: #3e2182;
+  color: white;
+  border: 2px solid white ;
+}
+
+
+/* Scanning effect container */
+.wave-active::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -10%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+  animation: scanEffect 1s linear forwards;
+}
+
+/* Scanning animation */
+@keyframes scanEffect {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+
+#output-ele {
+  display: none;
+  margin: 100px auto; /* Added top margin */
+  padding: 20px;
+  width: 80%;
+  border: 2px dashed white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#output-ele h2{
+  color: white;
+  padding-left: 20px;
+  font-family: 'Times New Roman';
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Ensures 2x2 layout */
+  gap: 15px;
+  padding: 15px;
+}
+
+.grid div {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 8px;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+#output-image {
+  max-width: 100%;
+  max-height: 100%;
+  border: 2px dashed white;
+  border-radius: 5px;
+}
+
+canvas {
+  background-color: white;
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+
+#result-container{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+}
+
+#result-container h3{
+  font-size: 30px;
+}
+
+#result-text {
+  font-weight: bold;
+  color: rgb(213, 3, 3);
+}
+
+#accuracy {
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(217, 255, 0);
+}
+
+#image-details {
+  text-align: left; /* Ensures text starts from the left */
+  font-size: 18px;
+  line-height: 1.75;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligns content to the left */
+  justify-content: flex-start; /* Ensures content starts from the top */
+  padding-left: 10px; /* Adds space from the left */
+}
+
+#image-details h3 {
+  font-size: 35px;
+  margin-bottom: 10px; /* Adds space below the heading */
+  align-self: flex-start; /* Ensures h3 stays at the top */
+}
+
+#model-details {
+  width: 350px;  /* Adjust the width as needed */
+  height: 50px;  /* Adjust if needed, or use a fixed height */
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 14px;  /* Reduce font size to fit content */
+  background-color: #323232;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+

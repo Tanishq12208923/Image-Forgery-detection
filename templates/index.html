@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DECO - Image Authentication</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>DECO</h1>
+            <p>Reveal the unseen Truth!</p>
+        </div>
+        <nav>
+            <div class="about-container">
+                <div class="about-btn">About us</div>
+                <div class="about-box">
+                    <h3>About DECO</h3>
+                      <p>DECO is an advanced image authentication tool that helps detect image manipulation using Error Level Analysis (ELA).</p>
+                      <p>Our mission is to uncover the truth behind digital images and provide reliable image forensics.</p>
+                      <p>We use state-of-the-art technology to analyze inconsistencies and modifications in digital media.</p>
+                     <p>Trusted by journalists, investigators, and digital forensics experts worldwide.</p>
+     
+                </div>
+            </div>
+            <div class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <div id="container-text"></div>
+    <div id="slider">
+        <i class="ri-arrow-down-wide-fill"></i>
+        <i class="ri-arrow-down-wide-fill"></i>
+        <i class="ri-arrow-down-wide-fill"></i>
+    </div>
+
+    <div id="main-ele">
+        <div class="upload-box" id="upload-box">
+            <i class="ri-upload-cloud-line"></i>
+            <label for="file-input" class="file-label">
+                <i class="ri-folders-line"></i> CHOOSE FILE
+            </label>
+            <input type="file" id="file-input" accept="image/jpeg, image/png, image/tiff" hidden>
+            <p class="drop-text">Only JPG and PNG.</p>
+        </div>
+
+        <img id="image-preview" src="" alt="Preview">
+        
+        <div class="scan-button-container">
+            <button id="scan-button">Scan</button>
+        </div>
+    </div>
+
+    <div id="output-ele">
+        <h2>Report:</h2>
+        <div class="grid">
+            <div>
+                <img id="output-image" src="" alt="ELA Image">
+            </div>
+            <div>
+                <canvas id="graph"></canvas>
+            </div>
+            <div id="result-container">
+                <h3>Result: <span id="result-text">Pending</span></h3>
+                <p>Accuracy: <span id="accuracy">--</span></p>
+                <p>Confidence: <span id="confidence">--</span></p>
+
+                <div id="model-details">
+                    <p>Train Accuracy <span id="train-accuracy">--</span></p>
+                    <p>Validation Accuracy <span id="val-accuracy">--</span></p>
+                    <p>Train Loss <span id="train-loss">--</span></p>
+                    <p>Validation Loss <span id="val-loss">--</span></p>
+                </div>                
+            </div>
+            <div id="img-details">
+                <p id="image-details"></p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
